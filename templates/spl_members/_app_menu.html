@@ -1,0 +1,15 @@
+<div class="menu app-menu">
+
+  {% if perms.spl_members.view_member %}
+    {% if 'member-' in request.resolver_match.url_name %}
+      <div class="menu-member menu-here">
+        <a href="{% url 'spl_members:member-list' %}">members</a>
+      </div>
+    {% else %}
+      <div class="menu-member">
+        <a href="{% url 'spl_members:member-list' %}">members</a>
+      </div>
+    {% endif %}
+  {% endif %}
+
+</div>

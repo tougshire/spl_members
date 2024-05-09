@@ -1,0 +1,37 @@
+
+<div class="form">
+  {{ form.errors }}
+  <form id="form_appointment" method="POST">
+  {{ form.media }}
+    {% csrf_token %}
+
+      <div id="div_name_full">
+        {% include 'touglates/form_field.html' with field=form.name_full %}
+      </div>
+      <div id="div_customers_request">
+        {% include 'touglates/form_field.html' with field=form.customers_request %}
+      </div>
+      <div id="div_when_submitted">
+        {% include 'touglates/form_field.html' with field=form.when_submitted %}
+      </div>
+      <div id="div_staffer">
+        {% include 'touglates/form_field.html' with field=form.staffer %}
+      </div>
+      <div id="div_when_started">
+        {% include 'touglates/form_field.html' with field=form.when_started %}
+      </div>
+      <div id="div_where_scheduled">
+        {% include 'touglates/form_field.html' with field=form.where_scheduled %}
+      </div>
+      <div id="div_status">
+        {% include 'touglates/form_field.html' with field=form.status %}
+      </div>
+
+
+
+      <button type="Submit">Submit</button>
+
+    </div>
+
+  </form>
+
