@@ -13,32 +13,32 @@ class CSVOptionForm(forms.Form):
     )
 
 
-class AttachmenttypeForm(forms.Modelform):
+class AttachmenttypeForm(forms.ModelForm):
     class Meta:
         model = Attachmenttype
-        fields = ["_all_"]
+        fields = "__all__"
 
 
-class DepartmentForm(forms.Modelform):
+class DepartmentForm(forms.ModelForm):
     class Meta:
         model = Department
-        fields = ["_all_"]
+        fields = "__all__"
 
 
-class JobpositionForm(forms.Modelform):
+class JobpositionForm(forms.ModelForm):
     class Meta:
         model = Jobposition
-        fields = ["_all_"]
+        fields = "__all__"
 
 
-class MemberForm(forms.Modelform):
+class MemberForm(forms.ModelForm):
     class Meta:
         model = Member
         fields = [
-            "name_preferred",
+            "name_prefered",
             "surname",
             "name_full",
-            "job_position",
+            "jobposition",
             "email",
             "phone",
             "start_date",

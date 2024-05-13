@@ -115,10 +115,10 @@
           <div class="listfield"><a href="{% url 'spl_members:member-detail' member.pk %}">view</a></div>
           <div class="listfield"><a href="{% url 'spl_members:member-update' member.pk %}">edit</a></div>
           {% if 'name_prefered' in show_columns or not show_columns %}
-            {% include 'touglates/list_field.html' with field=member.name_prefered %}
+            {% include 'touglates/list_field.html' with field=member %}
           {% endif %}
           {% if 'mmodel' in show_columns or not show_columns %}
-            {% include 'touglates/list_field.html' with field=member.mmodel %}
+            {% include 'touglates/list_field.html' with field=member.surname %}
           {% endif %}
           {% if 'primary_id' in show_columns or not show_columns %}
             {% include 'touglates/list_field.html' with field=member.primary_id %}
