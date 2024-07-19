@@ -3,5 +3,6 @@
 {% block content %}
 {% endblock %}
 {% block bottomscript %}
-<script src="{% static 'touglates/touglates.js' %}"></script>
+{{ block.super }}
+<script>applyStyles(".formsetaccessory__titleel", ".formsetaccessory__button", ["margin-top", "margin-bottom"] )</script>
 {% endblock %}
