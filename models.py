@@ -1,5 +1,6 @@
 from datetime import date
 from django.db import models
+from django.urls import reverse
 
 
 class Department(models.Model):
@@ -134,6 +135,9 @@ class Member(models.Model):
         default=True,
         help_text="Is this member an individual (as opposed to an organization or other entity which might be viewed as an individual for purposes of this data)",
     )
+
+    def get_absolute_url(self):
+        return reverse("spl_members:member-detail", kwargs={'pk': self.pk})
 
     def save(self, *args, **kwargs):
         if self.is_active:
