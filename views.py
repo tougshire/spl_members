@@ -11,15 +11,17 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.urls import reverse, reverse_lazy
 from touglates.views import make_labels
 
-class MemberCreate(CreateView):
+class MemberCreate(PermissionRequiredMixin,CreateView):
+    permission_required = "spl_members.add_member"
+
     model = Member
     form_class = MemberForm
 
+class MemberUpdate(PermissionRequiredMixin,UpdateView):
+    permission_required = "spl_members.change_member"
 
-class MemberUpdate(UpdateView):
     model = Member
     form_class = MemberForm
-
 
 class MemberDetail(PermissionRequiredMixin, DetailView):
     permission_required = "spl_members.view_member"
@@ -27,19 +29,6 @@ class MemberDetail(PermissionRequiredMixin, DetailView):
     model = Member
 
     def get_context_data(self, **kwargs):
-        context_data = super().get_context_data(**kwargs)
-
-        context_data["member_labels"] = make_labels(Member)
-
-        return context_data
-
-
-class MemberList(FilterView):
-    model = Member
-    template_name = "spl_members/member_list.html"
-
-    def get_context_data(self, *args, **kwargs):
-
         context_data = super().get_context_data(**kwargs)
 
         context_data["member_labels"] = make_labels(Member)
@@ -57,3 +46,18 @@ class MemberDelete(PermissionRequiredMixin, DeleteView):
         context_data["member_labels"] = make_labels(Member)
 
         return context_data
+
+class MemberList(PermissionRequiredMixin,FilterView):
+    permission_required = "spl_members.view_member"
+
+    model = Member
+    template_name = "spl_members/member_list.html"
+
+    def get_context_data(self, *args, **kwargs):
+
+        context_data = super().get_context_data(**kwargs)
+
+        context_data["member_labels"] = make_labels(Member)
+
+        return context_data
+
