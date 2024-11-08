@@ -86,6 +86,7 @@ class Attachmenttype(models.Model):
 
 
 class Member(models.Model):
+
     name_prefered = models.CharField(
         "prefered name",
         max_length=20,
@@ -101,13 +102,13 @@ class Member(models.Model):
         max_length=80,
         help_text="The full name of the member, the format of which should be consistantly applied throughout",
     )
-
     jobposition = models.ForeignKey(
         Jobposition,
         blank=True,
         null=True,
         on_delete=models.SET_NULL,
         help_text="The person's job position in the organization",
+        verbose_name="Job Position"
     )
     email = models.EmailField(
         "email", blank=True, help_text="The members's email address"

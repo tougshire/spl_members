@@ -26,4 +26,10 @@ urlpatterns = [
         views.MemberDetail.as_view(),
         name="member-detail",
     ),
+    path(
+        "member/<int:pk>/delete/",
+        views.MemberDelete.as_view(),
+        name="member-delete",
+    ),
+
 ]
