@@ -29,11 +29,7 @@ class MemberDetail(PermissionRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
 
-        context_data["member_labels"] = {
-            field.name: field.verbose_name.title()
-            for field in Member._meta.get_fields()
-            if type(field).__name__[-3:] != "Rel"
-        }
+        context_data["member_labels"] = make_labels(Member)
 
         return context_data
 
