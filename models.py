@@ -56,7 +56,12 @@ class Jobposition(models.Model):
         on_delete=models.SET_NULL,
         help_text="The positions's supervisor",
     )
-
+    email = models.EmailField(
+        "email", blank=True, help_text="The job position's email address."
+    )
+    phone = models.CharField(
+        "phone", max_length=30, blank=True, help_text="The job positions's phone number"
+    )
     def __str__(self):
         return (
             "{} {}".format(self.title, self.department)
