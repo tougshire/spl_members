@@ -37,7 +37,7 @@ urlpatterns = [
         name="department-create",
     ),
     path(
-        "department/create/",
+        "department/popup/",
         views.DepartmentCreate.as_view(),
         name="department-popup",
         kwargs={'popup':True}
