@@ -123,6 +123,21 @@ class JobpositionCreate(PermissionRequiredMixin,CreateView):
     template_name = 'spl_members/jobposition_create.html'
     form_class = JobpositionForm
 
+    def get_success_url(self):
+        print('tp24b9643', dir(self))
+        print('tp24b9701', self.kwargs)
+        if "popup" in self.kwargs:
+            return reverse(
+                "touglates:popup_closer",
+                kwargs={
+                    "pk": self.object.pk,
+                    "app_name": self.model._meta.app_label,
+                    "model_name": self.model.__name__,
+                },
+            )
+        return reverse_lazy("spl_members:jobposition-detail", kwargs={"pk": self.object.pk})
+
+
 class JobpositionUpdate(PermissionRequiredMixin,UpdateView):
     permission_required = "spl_members.change_jobposition"
     template_name = 'spl_members/jobposition_update.html'

@@ -64,6 +64,12 @@ urlpatterns = [
         name="jobposition-create",
     ),
     path(
+        "jobposition/popup/",
+         views.JobpositionCreate.as_view(),
+        {'popup': True},
+         name="jobposition-popup",
+    ),
+    path(
         "jobposition/update/<int:pk>/",
         views.JobpositionUpdate.as_view(),
         name="jobposition-update",
