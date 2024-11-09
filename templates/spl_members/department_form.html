@@ -6,16 +6,13 @@
     {% csrf_token %}
 
     <div id="div_title">
-      {% include 'touglates/form_field.html' with field=form.title %}
+      {% include 'touglates/form_field.html' with field=form.name %}
     </div>
     <div id="div_grade">
-      {% include 'touglates/form_field.html' with field=form.grade %}
+      {% include 'touglates/form_field.html' with field=form.abbreviation %}
     </div>
     <div id="div_department">
-      {% include 'touglates/form_field.html' with field=form.department %}
-    </div>
-    <div id="div_supervisor">
-      {% include 'touglates/form_field.html' with field=form.supervisor %}
+      {% include 'touglates/form_field.html' with field=form.container %}
     </div>
 
       <button type="Submit">Submit</button>

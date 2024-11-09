@@ -37,6 +37,12 @@ urlpatterns = [
         name="department-create",
     ),
     path(
+        "department/create/",
+        views.DepartmentCreate.as_view(),
+        name="department-popup",
+        kwargs={'popup':True}
+    ),
+    path(
         "department/update/<int:pk>/",
         views.DepartmentUpdate.as_view(),
         name="department-update",
@@ -56,8 +62,6 @@ urlpatterns = [
         views.DepartmentList.as_view(),
         name="department-list",
     ),
-
-
     path(
         "jobposition/create/",
         views.JobpositionCreate.as_view(),
@@ -65,9 +69,10 @@ urlpatterns = [
     ),
     path(
         "jobposition/popup/",
-         views.JobpositionCreate.as_view(),
-        {'popup': True},
-         name="jobposition-popup",
+        views.JobpositionCreate.as_view(),
+        name="jobposition-popup",
+        kwargs={'popup': True},
+
     ),
     path(
         "jobposition/update/<int:pk>/",

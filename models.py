@@ -40,7 +40,7 @@ class Jobposition(models.Model):
         "Grade",
         max_length=10,
         blank=True,
-        help_text="An indication of the position within a hierarchy, used for ordering in a list",
+        help_text="For alphabetical ordering.  An indication of the position within a hierarchy",
     )
     department = models.ForeignKey(
         Department,

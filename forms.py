@@ -16,12 +16,6 @@ class CSVOptionForm(forms.Form):
     )
 
 
-class AttachmenttypeForm(forms.ModelForm):
-    class Meta:
-        model = Attachmenttype
-        fields = "__all__"
-
-
 class DepartmentForm(forms.ModelForm):
     class Meta:
         model = Department
@@ -41,6 +35,16 @@ class JobpositionForm(forms.ModelForm):
             "department",
             "supervisor",
         ]
+        widgets = {
+            "department": TouglatesRelatedSelect(
+                related_data={
+                    "model_name": "Department",
+                    "app_name": "spl_members",
+                    "add_url": reverse_lazy("spl_members:department-popup"),
+                },
+                add_filter_input=True,
+            ),
+        }
 
 
 class MemberForm(forms.ModelForm):
