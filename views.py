@@ -1,3 +1,5 @@
+from django.http import HttpRequest
+from django.http.response import HttpResponse
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -13,12 +15,14 @@ from touglates.views import make_labels
 
 class MemberCreate(PermissionRequiredMixin,CreateView):
     permission_required = "spl_members.add_member"
+    template_name = 'spl_members/member_create.html'
 
     model = Member
     form_class = MemberForm
 
 class MemberUpdate(PermissionRequiredMixin,UpdateView):
     permission_required = "spl_members.change_member"
+    template_name = 'spl_members/member_update.html'
 
     model = Member
     form_class = MemberForm
@@ -63,12 +67,14 @@ class MemberList(PermissionRequiredMixin,FilterView):
 
 class DepartmentCreate(PermissionRequiredMixin,CreateView):
     permission_required = "spl_members.add_department"
+    template_name = 'spl_members/department_create.html'
 
     model = Department
     form_class = DepartmentForm
 
 class DepartmentUpdate(PermissionRequiredMixin,UpdateView):
     permission_required = "spl_members.change_department"
+    template_name = 'spl_members/department_update.html'
 
     model = Department
     form_class = DepartmentForm
@@ -113,12 +119,13 @@ class DepartmentList(PermissionRequiredMixin,FilterView):
 
 class JobpositionCreate(PermissionRequiredMixin,CreateView):
     permission_required = "spl_members.add_jobposition"
-
     model = Jobposition
+    template_name = 'spl_members/jobposition_create.html'
     form_class = JobpositionForm
 
 class JobpositionUpdate(PermissionRequiredMixin,UpdateView):
     permission_required = "spl_members.change_jobposition"
+    template_name = 'spl_members/jobposition_update.html'
 
     model = Jobposition
     form_class = JobpositionForm
