@@ -1,0 +1,26 @@
+
+<div class="form">
+  {{ form.errors }}
+  <form id="form_department" method="POST">
+  {{ form.media }}
+    {% csrf_token %}
+
+    <div id="div_title">
+      {% include 'touglates/form_field.html' with field=form.title %}
+    </div>
+    <div id="div_grade">
+      {% include 'touglates/form_field.html' with field=form.grade %}
+    </div>
+    <div id="div_department">
+      {% include 'touglates/form_field.html' with field=form.department %}
+    </div>
+    <div id="div_supervisor">
+      {% include 'touglates/form_field.html' with field=form.supervisor %}
+    </div>
+
+      <button type="Submit">Submit</button>
+
+    </div>
+
+  </form>
+

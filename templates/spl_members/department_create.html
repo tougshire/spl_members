@@ -1,0 +1,14 @@
+{% extends './_form.html' %}
+
+{% block content %}
+  {% include './department_menu.html' %}
+  <h2>Job Position</h2>
+  {% include './department_form.html' %}
+  {% include './department_menu.html' %}
+
+{% endblock %}
+{% block bottomscript %}
+{{ block.super }}
+{% endblock %}
+
+

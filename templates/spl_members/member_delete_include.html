@@ -9,12 +9,6 @@
     {% include 'touglates/detail_field.html' with label=member_labels.end_date field=object.end_date %}
     {% include 'touglates/detail_field.html' with label=member_labels.is_active field=object.is_active %}
 
-    <h3>Notes</h3><span id="div_appointmentNotes">Showing All </span><a href="#" id="a_toggleNotes">Show Flagged</a>
-    {% for appointmentnote in object.appointmentnote_set.all %}
-      <div class="relatedset relatedappointmentnote level{{ appointmentNote.appointmentnotelevel }} {% if appointmentnote.flagged %} flagged{% endif %}" id="div_appointmentnote-{{ forloop.counter0 }}">
-        {% include 'touglates/list_fields.html' with field_1_label='Note:' field_1=appointmentnote.when field_2=appointmentnote.appointmentnotecategory|default_if_none:'' field_3=appointmentnote.maintext %}
-      </div>
-    {% endfor %}
 
   </div>
 

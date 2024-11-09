@@ -22,13 +22,22 @@ class AttachmenttypeForm(forms.ModelForm):
 class DepartmentForm(forms.ModelForm):
     class Meta:
         model = Department
-        fields = "__all__"
+        fields = [
+            "name",
+            "abbreviation",
+            "container",
+        ]
 
 
 class JobpositionForm(forms.ModelForm):
     class Meta:
         model = Jobposition
-        fields = "__all__"
+        fields = [
+            "title",
+            "grade",
+            "department",
+            "supervisor",
+        ]
 
 
 class MemberForm(forms.ModelForm):

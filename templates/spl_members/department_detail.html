@@ -1,0 +1,14 @@
+{% extends './_base.html' %}
+
+{% block content %}
+  {% include './department_menu.html' %}
+  <h2>{{ object }}</h2>
+  {% include './department_detail_include.html' %}
+  {% include './department_menu.html' %}
+
+{% endblock %}
+
+{% block bottomscript %}
+{{ block.super }}
+{% endblock %}
+

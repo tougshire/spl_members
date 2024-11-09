@@ -1,0 +1,8 @@
+<div class="detail">
+  {% include 'touglates/detail_field.html' with label=jobposition_labels.name_prefered field=object.title %}
+  {% include 'touglates/detail_field.html' with label=jobposition_labels.surname field=object.grade %}
+  {% include 'touglates/detail_field.html' with label=jobposition_labels.name_full field=object.department %}
+  {% include 'touglates/detail_field.html' with label=jobposition_labels.jobposition field=object.supervisor %}
+
+</div>
+
