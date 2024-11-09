@@ -63,11 +63,7 @@ class Jobposition(models.Model):
         "phone", max_length=30, blank=True, help_text="The job positions's phone number"
     )
     def __str__(self):
-        return (
-            "{} {}".format(self.title, self.department)
-            if self.department is not None
-            else self.title
-        )
+        return self.title
 
     class Meta:
         ordering = [
