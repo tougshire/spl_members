@@ -5,6 +5,15 @@ from django.urls import reverse_lazy
 from touglates.widgets import TouglatesRelatedSelect
 from .models import Attachmenttype, Department, Jobposition, Member
 
+class JobpositionSelect(TouglatesRelatedSelect):
+    def create_option(
+        self, name, value, label, selected, index, subindex=None, attrs=None
+    ):
+        created_option = super().create_option(name, value, label, selected, index, subindex, attrs)
+        if value:
+            if value.instance.department:
+                created_option['label'] = created_option['label'] + ' ' + str(value.instance.department.abbreviation)
+        return created_option
 
 class CSVOptionForm(forms.Form):
 

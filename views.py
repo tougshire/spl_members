@@ -133,6 +133,7 @@ class DepartmentList(PermissionRequiredMixin,FilterView):
 class JobpositionCreate(PermissionRequiredMixin,CreateView):
     permission_required = "spl_members.add_jobposition"
     model = Jobposition
+
     template_name = 'spl_members/jobposition_create.html'
     form_class = JobpositionForm
 
